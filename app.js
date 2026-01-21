@@ -8,12 +8,14 @@ const PORT = process.env.PORT || 3000;
 const userRoutes = require('./routes/UserRoutes');
 const bookRoutes = require('./routes/BookRoutes');
 const orderRoutes = require('./routes/OrderRoutes');
+const authRoutes = require('./routes/authRoutes');
 const errorHandler = require('./middlewares/errorHandler');
 
 app.use(express.json());
 app.use('/users', userRoutes);
 app.use('/books', bookRoutes);
 app.use('/orders', orderRoutes);
+app.use('/api/auth', authRoutes);
 
 app.get('/', (req, res) => {
     res.json({ success: true, 
